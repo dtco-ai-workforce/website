@@ -64,15 +64,9 @@
           <a href="contact.html" class="btn-outline-w">預約顧問諮詢</a>
         </div>
       </div>
-      <div class="col-lg-7 hero-svg-wrap fade-in">
-        <img src="assets/img/hero-graphic.png"
-             alt="AI Workforce Network"
-             class="hero-graphic-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="hero-graphic-placeholder">
-          <span class="placeholder-filename">hero-graphic.png</span>
-          <span class="placeholder-path">→ assets/img/hero-graphic.png</span>
-          <span class="placeholder-hint">建議尺寸：1200 × 1000 px · PNG</span>
+      <div class="col-lg-7 hero-canvas-col fade-in">
+        <div class="hero-canvas-wrap">
+          <canvas id="hero-canvas"></canvas>
         </div>
       </div>
     </div>
@@ -553,5 +547,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/hero-canvas.js"></script>
 </body>
 </html>
