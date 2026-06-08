@@ -209,6 +209,42 @@ img, svg { max-width: 100%; }
   align-items: center;
 }
 
+.hero-graphic-img {
+  width: 100%;
+  max-width: 640px;
+  display: block;
+}
+
+.hero-graphic-placeholder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 6 / 5;
+  border: 1px dashed rgba(255,255,255,0.25);
+  border-radius: 6px;
+  gap: 0.6rem;
+  text-align: center;
+  padding: 2rem;
+}
+.placeholder-filename {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+}
+.placeholder-path {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  font-family: monospace;
+}
+.placeholder-hint {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 0.5rem;
+}
+
 /* ===== S2: Concept ===== */
 #concept .concept-title {
   font-size: clamp(1.6rem, 2.8vw, 2.4rem);

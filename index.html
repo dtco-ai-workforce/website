@@ -65,61 +65,15 @@
         </div>
       </div>
       <div class="col-lg-7 hero-svg-wrap fade-in">
-        <!-- Hero Network SVG: abstract thinking enterprise brain -->
-        <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;">
-          <defs>
-            <filter id="glow-sm" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="glow-lg" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <!-- Connection lines -->
-          <g stroke="rgba(255,255,255,0.18)" stroke-width="1" filter="url(#glow-sm)">
-            <line x1="300" y1="250" x2="300" y2="100"/>
-            <line x1="300" y1="250" x2="437" y2="175"/>
-            <line x1="300" y1="250" x2="437" y2="325"/>
-            <line x1="300" y1="250" x2="300" y2="400"/>
-            <line x1="300" y1="250" x2="163" y2="325"/>
-            <line x1="300" y1="250" x2="163" y2="175"/>
-          </g>
-          <!-- Outer nodes -->
-          <g filter="url(#glow-sm)">
-            <!-- Knowledge (top) -->
-            <circle cx="300" cy="100" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-            <text x="300" y="96" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Knowledge</text>
-            <!-- Customer (top-right) -->
-            <circle cx="437" cy="175" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-            <text x="437" y="171" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Customer</text>
-            <!-- Research (bottom-right) -->
-            <circle cx="437" cy="325" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-            <text x="437" y="321" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Research</text>
-            <!-- Projects (bottom) -->
-            <circle cx="300" cy="400" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-            <text x="300" y="396" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Projects</text>
-            <!-- Sales (bottom-left) -->
-            <circle cx="163" cy="325" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-            <text x="163" y="321" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Sales</text>
-            <!-- Content (top-left) -->
-            <circle cx="163" cy="175" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-            <text x="163" y="171" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Content</text>
-          </g>
-          <!-- Node labels (below/above each node) -->
-          <!-- Center: Decision -->
-          <circle cx="300" cy="250" r="44" fill="#0b0b0b" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" filter="url(#glow-lg)">
-            <animate attributeName="opacity" values="1;0.65;1" dur="3.5s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Pulse ring -->
-          <circle cx="300" cy="250" r="56" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1">
-            <animate attributeName="r" values="56;78" dur="3.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.12;0" dur="3.5s" repeatCount="indefinite"/>
-          </circle>
-          <text x="300" y="246" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.5">Decision</text>
-          <text x="300" y="260" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5" font-family="Inter,sans-serif">Hub</text>
-        </svg>
+        <img src="assets/img/hero-graphic.png"
+             alt="AI Workforce Network"
+             class="hero-graphic-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="hero-graphic-placeholder">
+          <span class="placeholder-filename">hero-graphic.png</span>
+          <span class="placeholder-path">→ assets/img/hero-graphic.png</span>
+          <span class="placeholder-hint">建議尺寸：1200 × 1000 px · PNG</span>
+        </div>
       </div>
     </div>
   </div>
