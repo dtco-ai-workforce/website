@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTCO · Build Your AI Workforce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">DTCO</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav">
+      <span style="display:block;width:22px;height:1.5px;background:#fff;margin:5px 0;"></span>
+      <span style="display:block;width:22px;height:1.5px;background:#fff;margin:5px 0;"></span>
+      <span style="display:block;width:22px;height:1.5px;background:#fff;margin:5px 0;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+        <li class="nav-item"><a class="nav-link" href="cases.html">Cases</a></li>
+        <li class="nav-item"><a class="nav-link" href="assessment.html">Assessment</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item ms-2"><a class="btn-nav" href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="offcanvas offcanvas-end" id="mobileNav">
+  <div class="offcanvas-header">
+    <span class="navbar-brand">DTCO</span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+      <li class="nav-item"><a class="nav-link" href="cases.html">Cases</a></li>
+      <li class="nav-item"><a class="nav-link" href="assessment.html">Assessment</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      <li class="nav-item mt-3"><a class="btn-nav d-inline-block" href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== S1: HERO ===== -->
+<section id="hero" class="section-dark">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5">
+        <p class="hero-eyebrow fade-in">DTCO · AI Workforce Builder</p>
+        <h1 class="hero-title fade-in">Build Your<br>AI Workforce</h1>
+        <p class="hero-title-zh fade-in">建立您的數位員工團隊</p>
+        <p class="hero-slogan fade-in">讓 AI 執行工作，<br>讓團隊專注於策略、目標與決策。</p>
+        <p class="hero-desc fade-in">
+          DTCO 協助企業建立專屬的 AI Workforce，將知識、流程、服務、研究與專案管理轉化為可持續運作的數位員工團隊。
+        </p>
+        <div class="hero-cta-group fade-in">
+          <a href="assessment.html" class="btn-primary-w">開始 AI 體檢</a>
+          <a href="contact.html" class="btn-outline-w">預約顧問諮詢</a>
+        </div>
+      </div>
+      <div class="col-lg-7 hero-svg-wrap fade-in">
+        <!-- Hero Network SVG: abstract thinking enterprise brain -->
+        <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;">
+          <defs>
+            <filter id="glow-sm" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glow-lg" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Connection lines -->
+          <g stroke="rgba(255,255,255,0.18)" stroke-width="1" filter="url(#glow-sm)">
+            <line x1="300" y1="250" x2="300" y2="100"/>
+            <line x1="300" y1="250" x2="437" y2="175"/>
+            <line x1="300" y1="250" x2="437" y2="325"/>
+            <line x1="300" y1="250" x2="300" y2="400"/>
+            <line x1="300" y1="250" x2="163" y2="325"/>
+            <line x1="300" y1="250" x2="163" y2="175"/>
+          </g>
+          <!-- Outer nodes -->
+          <g filter="url(#glow-sm)">
+            <!-- Knowledge (top) -->
+            <circle cx="300" cy="100" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="300" y="96" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Knowledge</text>
+            <!-- Customer (top-right) -->
+            <circle cx="437" cy="175" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="437" y="171" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Customer</text>
+            <!-- Research (bottom-right) -->
+            <circle cx="437" cy="325" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="437" y="321" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Research</text>
+            <!-- Projects (bottom) -->
+            <circle cx="300" cy="400" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="300" y="396" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Projects</text>
+            <!-- Sales (bottom-left) -->
+            <circle cx="163" cy="325" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="163" y="321" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Sales</text>
+            <!-- Content (top-left) -->
+            <circle cx="163" cy="175" r="24" fill="#111" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="163" y="171" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="Inter,sans-serif" font-weight="500">Content</text>
+          </g>
+          <!-- Node labels (below/above each node) -->
+          <!-- Center: Decision -->
+          <circle cx="300" cy="250" r="44" fill="#0b0b0b" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" filter="url(#glow-lg)">
+            <animate attributeName="opacity" values="1;0.65;1" dur="3.5s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Pulse ring -->
+          <circle cx="300" cy="250" r="56" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1">
+            <animate attributeName="r" values="56;78" dur="3.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.12;0" dur="3.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="300" y="246" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.5">Decision</text>
+          <text x="300" y="260" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8.5" font-family="Inter,sans-serif">Hub</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S2: AI WORKFORCE CONCEPT ===== -->
+<section id="concept" class="section-light section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-in">
+        <span class="section-label">AI Workforce</span>
+        <h2 class="concept-title">
+          每一家企業都有員工團隊。<br>
+          未來，每一家企業也都將<br>擁有 AI Workforce。
+        </h2>
+        <p class="concept-desc">
+          AI Workforce 是由 AI 員工、企業知識中樞與自動化流程所組成的數位工作團隊。它協助企業執行重複性工作、保存知識資產，並提升整體組織生產力。
+        </p>
+      </div>
+      <div class="col-lg-6 fade-in">
+        <!-- Workforce Concept Map: rational architecture diagram -->
+        <svg viewBox="0 0 540 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <defs>
+            <filter id="shadow-light" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,0.08)"/>
+            </filter>
+          </defs>
+          <!-- Connecting lines -->
+          <g stroke="#d9d9d9" stroke-width="1">
+            <line x1="270" y1="185" x2="270" y2="82"/>
+            <line x1="270" y1="195" x2="420" y2="135"/>
+            <line x1="270" y1="205" x2="420" y2="275"/>
+            <line x1="270" y1="215" x2="270" y2="318"/>
+            <line x1="270" y1="205" x2="120" y2="275"/>
+            <line x1="270" y1="195" x2="120" y2="135"/>
+          </g>
+          <!-- Outer nodes -->
+          <g fill="white" stroke="#d9d9d9" stroke-width="1" filter="url(#shadow-light)">
+            <rect x="210" y="52" width="120" height="36" rx="4"/>
+            <rect x="358" y="105" width="130" height="36" rx="4"/>
+            <rect x="358" y="245" width="130" height="36" rx="4"/>
+            <rect x="210" y="288" width="120" height="36" rx="4"/>
+            <rect x="52" y="245" width="120" height="36" rx="4"/>
+            <rect x="52" y="105" width="120" height="36" rx="4"/>
+          </g>
+          <g fill="#222" font-size="10" font-family="Inter,sans-serif" font-weight="600" text-anchor="middle">
+            <text x="270" y="75">Knowledge</text>
+            <text x="423" y="128">Customer Service</text>
+            <text x="423" y="268">Research</text>
+            <text x="270" y="311">Content</text>
+            <text x="112" y="268">Projects</text>
+            <text x="112" y="128">Sales</text>
+          </g>
+          <!-- Center Hub -->
+          <rect x="168" y="168" width="204" height="52" rx="5" fill="#0b0b0b" filter="url(#shadow-light)"/>
+          <text x="270" y="190" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.5">Enterprise</text>
+          <text x="270" y="206" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="9" font-family="Inter,sans-serif">Knowledge Hub</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S3: PROBLEM ===== -->
+<section id="problem" class="section-dark section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-in">
+        <span class="section-label">The Problem</span>
+        <h2>Where does productivity<br>disappear?</h2>
+        <p style="color:var(--gray-500);font-size:0.95rem;margin-top:0.75rem;">企業生產力，往往消失在看不見的工作縫隙中。</p>
+        <ul class="pain-list mt-4">
+          <li>知識散落在 Email、LINE、文件與個人腦袋裡。</li>
+          <li>重複性問題每天反覆回答。</li>
+          <li>會議結束後，任務沒有被追蹤。</li>
+          <li>新人訓練依賴資深員工口頭教學。</li>
+          <li>專案經驗無法累積成企業資產。</li>
+        </ul>
+        <p class="problem-closing">
+          這些工作都很重要，<br>但不一定需要由最有經驗的人親自完成。
+        </p>
+      </div>
+      <div class="col-lg-6 fade-in">
+        <!-- Productivity Gap SVG -->
+        <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <!-- Left node: People -->
+          <rect x="20" y="120" width="80" height="44" rx="4" fill="#1a1a1a" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <text x="60" y="147" text-anchor="middle" fill="white" font-size="12" font-family="Inter,sans-serif" font-weight="600">People</text>
+          <!-- Right node: Goals -->
+          <rect x="400" y="120" width="80" height="44" rx="4" fill="#1a1a1a" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <text x="440" y="147" text-anchor="middle" fill="white" font-size="12" font-family="Inter,sans-serif" font-weight="600">Goals</text>
+          <!-- Broken lines with gap nodes -->
+          <!-- Line 1: Knowledge Lost -->
+          <line x1="100" y1="132" x2="195" y2="132" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="196" y="120" width="108" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <text x="250" y="138" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">Knowledge Lost</text>
+          <line x1="304" y1="132" x2="400" y2="132" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4,3" stroke-width="1"/>
+          <!-- Line 2: Repeated Work -->
+          <line x1="100" y1="152" x2="190" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="191" y="155" width="110" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <text x="246" y="173" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">Repeated Work</text>
+          <line x1="301" y1="168" x2="400" y2="152" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4,3" stroke-width="1"/>
+          <!-- Line 3: Training Cost -->
+          <line x1="100" y1="142" x2="190" y2="195" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <rect x="191" y="185" width="110" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <text x="246" y="203" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">Training Cost</text>
+          <line x1="301" y1="200" x2="400" y2="142" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4,3" stroke-width="1"/>
+          <!-- Line 4: Communication Gap -->
+          <line x1="100" y1="155" x2="185" y2="228" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <rect x="186" y="218" width="128" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <text x="250" y="236" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter,sans-serif">Communication Gap</text>
+          <line x1="314" y1="232" x2="400" y2="155" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4,3" stroke-width="1"/>
+          <!-- Line 5: Project Delay -->
+          <line x1="100" y1="158" x2="190" y2="258" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <rect x="191" y="248" width="110" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <text x="246" y="266" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">Project Delay</text>
+          <line x1="301" y1="262" x2="400" y2="158" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,3" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S4: SOLUTION MODULES ===== -->
+<section id="modules" class="section-light section-pad">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <span class="section-label d-block">AI Workforce Modules</span>
+      <h2>建立最適合您組織的 AI Workforce</h2>
+      <p class="section-desc mt-3">每一家企業的瓶頸不同。<br>DTCO 從問題出發，設計適合您組織的 AI 勞動力組合。</p>
+    </div>
+    <div class="row g-3 mt-2">
+      <div class="col-md-6 col-lg-4 fade-in">
+        <div class="module-card">
+          <div class="icon-wrap"><img src="assets/svg/icon-knowledge.svg" alt="Knowledge"></div>
+          <h5>AI Knowledge Workforce</h5>
+          <span class="module-zh">企業知識管理</span>
+          <p>協助整理 SOP、FAQ、文件、技術知識與新人訓練內容。</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in">
+        <div class="module-card">
+          <div class="icon-wrap"><img src="assets/svg/icon-customer.svg" alt="Customer Service"></div>
+          <h5>AI Customer Service Workforce</h5>
+          <span class="module-zh">客戶服務</span>
+          <p>協助處理常見問題、會員服務、流程引導與客服支援。</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in">
+        <div class="module-card">
+          <div class="icon-wrap"><img src="assets/svg/icon-sales.svg" alt="Sales"></div>
+          <h5>AI Sales Workforce</h5>
+          <span class="module-zh">業務與商機管理</span>
+          <p>協助客戶需求分析、商機追蹤、提案產生與成交流程管理。</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in">
+        <div class="module-card">
+          <div class="icon-wrap"><img src="assets/svg/icon-project.svg" alt="Project"></div>
+          <h5>AI Project Workforce</h5>
+          <span class="module-zh">專案管理</span>
+          <p>協助會議紀錄、任務追蹤、文件整理與專案風險提醒。</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in">
+        <div class="module-card">
+          <div class="icon-wrap"><img src="assets/svg/icon-research.svg" alt="Research"></div>
+          <h5>AI Research Workforce</h5>
+          <span class="module-zh">研究與情報分析</span>
+          <p>協助市場研究、文獻整理、法規分析與競品情報蒐集。</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 fade-in">
+        <div class="module-card">
+          <div class="icon-wrap"><img src="assets/svg/icon-content.svg" alt="Content"></div>
+          <h5>AI Content Workforce</h5>
+          <span class="module-zh">內容與行銷</span>
+          <p>協助文章、社群貼文、電子報、SEO 內容與品牌知識產製。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S5: REAL CASES ===== -->
+<section id="cases" class="section-dark section-pad">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-4 fade-in">
+        <div class="cases-header">
+          <span class="section-label">Real Cases</span>
+          <h2>Real systems.<br>Real work.<br>Real results.</h2>
+          <p class="cases-desc">
+            這些不是 Demo，而是在真實場域中持續運作的 AI 工作流程。
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-8 fade-in">
+        <div class="case-card">
+          <h5>AI Editorial Team</h5>
+          <p>從主題規劃、內容產製、文件整理、審稿追蹤到發布管理，AI 編輯部協助團隊穩定產出內容。</p>
+          <div class="case-flow">
+            <span class="flow-node">Input</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">AI Processing</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Google Docs</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Review</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Publish</span>
+          </div>
+        </div>
+        <div class="case-card">
+          <h5>AI Knowledge Hub</h5>
+          <p>將 FAQ、SOP、專案文件與營運知識整合為企業知識中樞，讓任何人都能在 10 秒內找到答案。</p>
+          <div class="case-flow">
+            <span class="flow-node">Documents</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Knowledge Base</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">AI Query</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Team Support</span>
+          </div>
+        </div>
+        <div class="case-card" style="margin-bottom:0;">
+          <h5>AI Project Office</h5>
+          <p>協助團隊整理會議紀錄、追蹤任務、保存專案知識，讓每一個決策都有跡可循。</p>
+          <div class="case-flow">
+            <span class="flow-node">Meeting</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Summary</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Tasks</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Tracking</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-node">Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S6: AI ASSESSMENT CTA ===== -->
+<section id="assessment-cta" class="section-light section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 fade-in">
+        <div class="score-wrap">
+          <div class="score-ring-container">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="78" fill="none" stroke="#e8e8e8" stroke-width="14"/>
+              <circle cx="100" cy="100" r="78" fill="none" stroke="#0b0b0b" stroke-width="14"
+                stroke-dasharray="181 490.1" stroke-linecap="round"/>
+            </svg>
+            <div class="score-ring-center">
+              <span class="score-number">37</span>
+              <span class="score-denom">/ 100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 fade-in">
+        <span class="section-label">AI Assessment</span>
+        <h2 style="font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:1rem;">您的企業 AI 成熟度有幾分？</h2>
+        <p style="color:var(--gray-800);line-height:1.9;margin-bottom:1.75rem;">
+          花 3 分鐘完成 AI 體檢，了解您的企業最適合從哪一種 AI Workforce 開始。
+        </p>
+        <ul class="level-list mb-4">
+          <li><span class="level-dot"></span>Level 1 — AI Beginner</li>
+          <li class="highlight"><span class="level-dot"></span>Level 2 — AI Enabled</li>
+          <li><span class="level-dot"></span>Level 3 — AI Workforce Ready</li>
+          <li><span class="level-dot"></span>Level 4 — AI Native Organization</li>
+        </ul>
+        <a href="assessment.html" class="btn-primary-d">開始 AI 體檢</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S7: IMPLEMENTATION MODEL ===== -->
+<section id="implementation" class="section-dark section-pad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center fade-in">
+        <span class="section-label">Implementation Model</span>
+        <h2>From First AI Worker<br>to AI Native Organization</h2>
+        <p style="color:var(--gray-500);margin-top:0.75rem;font-size:0.95rem;line-height:1.9;">
+          從第一位 AI 員工開始，逐步建立 AI 原生組織。
+        </p>
+      </div>
+    </div>
+    <div class="timeline-outer fade-in">
+      <div class="timeline-track d-none d-md-block"></div>
+      <div class="timeline-stages">
+        <div class="timeline-stage">
+          <div class="t-node"></div>
+          <div>
+            <div class="t-num">01</div>
+            <div class="t-name">Assessment</div>
+            <div class="t-desc">AI Workforce 體檢與顧問訪談</div>
+          </div>
+        </div>
+        <div class="timeline-stage">
+          <div class="t-node"></div>
+          <div>
+            <div class="t-num">02</div>
+            <div class="t-name">Knowledge Foundation</div>
+            <div class="t-desc">建立企業知識中樞與基礎工作流程</div>
+          </div>
+        </div>
+        <div class="timeline-stage">
+          <div class="t-node"></div>
+          <div>
+            <div class="t-num">03</div>
+            <div class="t-name">Department AI</div>
+            <div class="t-desc">導入部門級 AI 員工</div>
+          </div>
+        </div>
+        <div class="timeline-stage">
+          <div class="t-node"></div>
+          <div>
+            <div class="t-num">04</div>
+            <div class="t-name">AI Workforce</div>
+            <div class="t-desc">跨部門 AI Workforce 協作</div>
+          </div>
+        </div>
+        <div class="timeline-stage">
+          <div class="t-node"></div>
+          <div>
+            <div class="t-num">05</div>
+            <div class="t-name">AI Native Org</div>
+            <div class="t-desc">讓 AI 成為組織日常運作的一部分</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S8: ABOUT DTCO ===== -->
+<section id="about" class="section-dark section-pad" style="border-top:1px solid rgba(255,255,255,0.07);">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-in">
+        <span class="section-label">About DTCO</span>
+        <h2>我們是一群<br>AI 原生工作者</h2>
+        <p class="about-desc mt-3">
+          DTCO 長期投入軟體開發、政府專案、醫療生技數位轉型與 AI Agent 工作流程設計。
+        </p>
+        <p class="about-desc">
+          我們不只是導入 AI 工具，而是協助企業重新設計工作如何被完成。
+        </p>
+        <div class="capability-tags mt-3">
+          <span class="cap-tag">AI Agent Architecture</span>
+          <span class="cap-tag">Knowledge Systems</span>
+          <span class="cap-tag">Workflow Automation</span>
+          <span class="cap-tag">Enterprise Integration</span>
+          <span class="cap-tag">Software Development</span>
+          <span class="cap-tag">Government &amp; Healthcare</span>
+        </div>
+        <div class="philosophy-block">
+          <p>AI 能力越強，<br>想像力越重要。</p>
+          <p class="sub">
+            我們協助企業 AI 化、自動化所有能被 AI 化的工作流程，讓團隊生產力提升 10 倍，甚至 100 倍。
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in">
+        <!-- DTCO Capability Map SVG -->
+        <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <defs>
+            <filter id="glow-cap" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Lines -->
+          <g stroke="rgba(255,255,255,0.2)" stroke-width="1" filter="url(#glow-cap)">
+            <line x1="250" y1="210" x2="250" y2="90"/>
+            <line x1="250" y1="210" x2="375" y2="150"/>
+            <line x1="250" y1="210" x2="375" y2="280"/>
+            <line x1="250" y1="210" x2="250" y2="340"/>
+            <line x1="250" y1="210" x2="125" y2="280"/>
+            <line x1="250" y1="210" x2="125" y2="150"/>
+          </g>
+          <!-- Outer nodes -->
+          <g fill="#1a1a1a" stroke="rgba(255,255,255,0.3)" stroke-width="1" filter="url(#glow-cap)">
+            <circle cx="250" cy="90" r="26"/>
+            <circle cx="375" cy="150" r="26"/>
+            <circle cx="375" cy="280" r="26"/>
+            <circle cx="250" cy="340" r="26"/>
+            <circle cx="125" cy="280" r="26"/>
+            <circle cx="125" cy="150" r="26"/>
+          </g>
+          <g fill="rgba(255,255,255,0.7)" font-size="9" font-family="Inter,sans-serif" font-weight="500" text-anchor="middle">
+            <text x="250" y="87">Agent</text>
+            <text x="375" y="147">Knowledge</text>
+            <text x="375" y="277">Workflow</text>
+            <text x="250" y="337">Integration</text>
+            <text x="125" y="277">Software</text>
+            <text x="125" y="147">Healthcare</text>
+          </g>
+          <!-- Center DTCO node -->
+          <circle cx="250" cy="210" r="46" fill="#0b0b0b" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" filter="url(#glow-cap)">
+            <animate attributeName="opacity" values="1;0.7;1" dur="4s" repeatCount="indefinite"/>
+          </circle>
+          <text x="250" y="214" text-anchor="middle" fill="white" font-size="14" font-family="Inter,sans-serif" font-weight="700" letter-spacing="1">DTCO</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S9: FINAL CTA ===== -->
+<section id="final-cta" class="section-dark section-pad">
+  <div class="container">
+    <div class="cta-content fade-in">
+      <h2>Ready to Build<br>Your AI Workforce?</h2>
+      <p class="cta-zh">準備好建立您的 AI 數位團隊了嗎？</p>
+      <p class="cta-desc">
+        從一次 AI 體檢開始，<br>找出您的企業最適合導入的 AI Workforce。
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="assessment.html" class="btn-primary-w">開始 AI 體檢</a>
+        <a href="contact.html" class="btn-outline-w">預約顧問諮詢</a>
+      </div>
+    </div>
+  </div>
+  <!-- Decorative light lines -->
+  <svg class="final-cta-light" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="white" stroke-width="1" fill="none">
+      <line x1="0" y1="320" x2="420" y2="0"/>
+      <line x1="40" y1="320" x2="420" y2="40"/>
+      <line x1="80" y1="320" x2="420" y2="80"/>
+      <line x1="120" y1="320" x2="420" y2="120"/>
+      <line x1="160" y1="320" x2="420" y2="160"/>
+      <line x1="200" y1="320" x2="420" y2="200"/>
+      <line x1="0" y1="280" x2="380" y2="0"/>
+      <line x1="0" y1="240" x2="340" y2="0"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ===== S10: FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <span class="footer-brand">DTCO</span>
+        <p class="footer-tagline">Build Your AI Workforce.<br>建立您的數位員工團隊。</p>
+      </div>
+      <div class="col-lg-4">
+        <ul class="footer-links">
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="cases.html">Cases</a></li>
+          <li><a href="assessment.html">Assessment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-philosophy">AI 能力越強，想像力越重要。</span>
+      <span class="footer-copy">&copy; 2025 DTCO. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

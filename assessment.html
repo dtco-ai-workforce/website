@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 體檢 · DTCO</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: var(--dark); color: var(--white); }
+
+    #quiz-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.1rem 0;
+    }
+
+    .quiz-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .quiz-progress-text {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      letter-spacing: 0.1em;
+    }
+
+    .progress-bar-wrap {
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      margin-top: 0.75rem;
+    }
+    .progress-bar-fill {
+      height: 2px;
+      background: var(--white);
+      transition: width 0.4s ease;
+    }
+
+    /* Quiz screens */
+    #quiz-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 0 60px;
+    }
+
+    .question-wrap { max-width: 700px; width: 100%; }
+
+    .question-num {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .question-text {
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 2.5rem;
+      color: var(--white);
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      padding: 1.1rem 1.5rem;
+      color: var(--gray-300);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      margin-bottom: 0.6rem;
+    }
+    .option-btn:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.35);
+      color: var(--white);
+    }
+    .option-btn.selected {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .option-letter {
+      display: inline-block;
+      width: 22px;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+
+    /* Result screen */
+    #result-screen {
+      display: none;
+      min-height: 100vh;
+      padding: 120px 0 80px;
+    }
+
+    .result-wrap { max-width: 680px; }
+
+    .result-level-badge {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      color: var(--gray-300);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.75rem;
+    }
+
+    .result-score-wrap {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .result-ring {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+    }
+    .result-ring svg { transform: rotate(-90deg); }
+    .result-ring-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .result-ring-num {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .result-ring-denom {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    .result-level-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .result-level-subtitle {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      margin-top: 0.5rem;
+    }
+
+    .result-recs h5 {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .rec-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .rec-num {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      font-weight: 600;
+      min-width: 20px;
+      padding-top: 2px;
+    }
+    .rec-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .rec-desc {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-top: 0.15rem;
+    }
+
+    .result-cta {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .result-cta h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .result-cta p {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      margin-bottom: 1.5rem;
+    }
+    .result-cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div id="quiz-header">
+  <div class="container">
+    <div class="quiz-nav">
+      <a href="/" class="quiz-brand">DTCO</a>
+      <span class="quiz-progress-text" id="progress-text">1 / 10</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar" style="width:10%;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz Screen -->
+<div id="quiz-screen">
+  <div class="container">
+    <div class="question-wrap mx-auto">
+      <div class="question-num" id="q-num">Question 01</div>
+      <div class="question-text" id="q-text"></div>
+      <div id="q-options"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Result Screen -->
+<div id="result-screen">
+  <div class="container">
+    <div class="result-wrap mx-auto">
+      <div class="result-level-badge" id="result-badge">Level 2 — AI Enabled</div>
+
+      <div class="result-score-wrap">
+        <div class="result-ring">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="56" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="10"/>
+            <circle cx="70" cy="70" r="56" fill="none" stroke="white" stroke-width="10"
+              stroke-dasharray="0 351.9" stroke-linecap="round" id="result-ring-fill"/>
+          </svg>
+          <div class="result-ring-center">
+            <span class="result-ring-num" id="result-score-num">0</span>
+            <span class="result-ring-denom">/ 30</span>
+          </div>
+        </div>
+        <div>
+          <div class="result-level-title" id="result-level-title">AI Enabled</div>
+          <div class="result-level-subtitle" id="result-level-sub"></div>
+        </div>
+      </div>
+
+      <div class="result-recs">
+        <h5>建議優先導入</h5>
+        <div id="result-recs-list"></div>
+      </div>
+
+      <div class="result-cta">
+        <h4>下一步：預約 60 分鐘 Digital Workforce Discovery Workshop</h4>
+        <p>由 DTCO 顧問協助您制定專屬的 AI Workforce 導入計畫。</p>
+        <div class="result-cta-btns">
+          <a href="contact.html" class="btn-primary-w">預約顧問諮詢</a>
+          <a href="/" class="btn-outline-w">回到首頁</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const questions = [
+  {
+    text: "您的企業目前使用 AI 工具的情況？",
+    options: [
+      "幾乎沒有使用",
+      "少數人自行使用（如 ChatGPT）",
+      "部分部門有導入 AI 工具",
+      "已有跨部門的 AI 工作流程"
+    ]
+  },
+  {
+    text: "企業的知識與 SOP，目前保存在哪裡？",
+    options: [
+      "主要在員工腦袋裡",
+      "散落在 Email、LINE 與個人文件中",
+      "有文件，但難以查詢或更新不一致",
+      "有系統化的知識庫，員工可自行查詢"
+    ]
+  },
+  {
+    text: "客服或內部問題，通常如何處理？",
+    options: [
+      "靠資深員工口頭回答",
+      "有 FAQ，但員工不常用",
+      "有客服系統，但回覆效率不穩定",
+      "有標準化的客服流程與回覆機制"
+    ]
+  },
+  {
+    text: "業務機會與客戶跟單，如何追蹤？",
+    options: [
+      "靠業務員個人記憶或 Excel",
+      "有 CRM 工具，但使用不一致",
+      "有固定的業務追蹤流程",
+      "有系統化的商機管理與分析"
+    ]
+  },
+  {
+    text: "會議結束後，任務如何追蹤？",
+    options: [
+      "幾乎沒有追蹤機制",
+      "偶爾有會議紀錄，但執行率不穩定",
+      "有專案管理工具，但使用不一致",
+      "有完整的任務指派與進度追蹤流程"
+    ]
+  },
+  {
+    text: "新人訓練，主要靠什麼方式？",
+    options: [
+      "資深員工一對一口頭教學",
+      "有一些文件，但不夠完整",
+      "有訓練教材，但更新不及時",
+      "有系統化的訓練流程與知識庫"
+    ]
+  },
+  {
+    text: "研究與市場情報，如何蒐集與整理？",
+    options: [
+      "沒有固定流程，靠個人自行搜尋",
+      "偶爾有人整理，但不夠規律",
+      "有定期報告，但耗費大量人力",
+      "有系統化的情報蒐集與分析流程"
+    ]
+  },
+  {
+    text: "內容產出（文章、社群、電子報）的現況？",
+    options: [
+      "沒有固定的內容產出",
+      "偶爾產出，缺乏規律",
+      "有固定排程，但人力一直吃緊",
+      "有穩定的內容生產流程"
+    ]
+  },
+  {
+    text: "您的團隊對導入 AI 工具的態度？",
+    options: [
+      "多數人持觀望或排斥態度",
+      "少數人願意嘗試",
+      "大部分人願意學習新工具",
+      "團隊主動尋找 AI 解決方案"
+    ]
+  },
+  {
+    text: "您希望 AI 最先幫您解決哪一個問題？",
+    options: [
+      "讓企業知識可以被快速查詢，減少重複回答",
+      "讓客服與業務的回應更快、更標準化",
+      "讓會議與專案不再靠人力追蹤",
+      "讓研究蒐集與內容產出更有效率"
+    ]
+  }
+];
+
+const levelData = [
+  { min: 0,  max: 8,  level: 1, title: "AI Beginner",          sub: "您的企業尚在 AI 起步階段，現在是建立基礎的最佳時機。" },
+  { min: 9,  max: 16, level: 2, title: "AI Enabled",           sub: "您的企業已具備基本 AI 意識，可以開始系統性導入 Workforce。" },
+  { min: 17, max: 23, level: 3, title: "AI Workforce Ready",   sub: "您的企業組織已準備好，適合快速擴展 AI Workforce 規模。" },
+  { min: 24, max: 30, level: 4, title: "AI Native Organization", sub: "您的企業具備高度 AI 成熟度，可進一步整合跨部門 AI Workforce。" }
+];
+
+const teamMap = {
+  A: { name: "AI Knowledge Workforce",        desc: "建立企業知識庫，讓知識變成可查詢的資產。" },
+  B: { name: "AI Customer Service Workforce", desc: "標準化客服流程，提升回應效率。" },
+  B2: { name: "AI Sales Workforce",           desc: "系統化商機追蹤與業務流程管理。" },
+  C: { name: "AI Project Workforce",          desc: "自動化會議紀錄、任務追蹤與專案管理。" },
+  D: { name: "AI Research Workforce",         desc: "建立情報蒐集與分析的自動化流程。" },
+  D2: { name: "AI Content Workforce",         desc: "穩定內容產出，解放人力創意。" }
+};
+
+// Map Q10 answer to recommended teams
+const q10Recs = {
+  0: ["A",  "C"],
+  1: ["B",  "B2"],
+  2: ["C",  "A"],
+  3: ["D",  "D2"]
+};
+
+let answers = [];
+let currentQ = 0;
+
+function renderQuestion(index) {
+  const q = questions[index];
+  const letters = ["A", "B", "C", "D"];
+
+  document.getElementById("q-num").textContent =
+    "Question " + String(index + 1).padStart(2, "0");
+  document.getElementById("q-text").textContent = q.text;
+
+  const opts = document.getElementById("q-options");
+  opts.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.innerHTML = `<span class="option-letter">${letters[i]}.</span>${opt}`;
+    btn.addEventListener("click", () => selectAnswer(i));
+    opts.appendChild(btn);
+  });
+
+  updateProgress(index + 1);
+}
+
+function selectAnswer(idx) {
+  answers[currentQ] = idx;
+
+  // Flash selected
+  const btns = document.querySelectorAll(".option-btn");
+  btns.forEach(b => b.classList.remove("selected"));
+  btns[idx].classList.add("selected");
+
+  setTimeout(() => {
+    currentQ++;
+    if (currentQ < questions.length) {
+      renderQuestion(currentQ);
+    } else {
+      showResult();
+    }
+  }, 300);
+}
+
+function updateProgress(current) {
+  document.getElementById("progress-text").textContent = `${current} / 10`;
+  document.getElementById("progress-bar").style.width = `${(current / 10) * 100}%`;
+}
+
+function showResult() {
+  document.getElementById("quiz-screen").style.display = "none";
+  document.getElementById("result-screen").style.display = "block";
+  document.getElementById("progress-text").textContent = "完成";
+  document.getElementById("progress-bar").style.width = "100%";
+
+  const total = answers.reduce((sum, a) => sum + a, 0);
+  const lv = levelData.find(l => total >= l.min && total <= l.max);
+
+  // Score ring animation
+  const circumference = 2 * Math.PI * 56; // 351.9
+  const fill = (total / 30) * circumference;
+  document.getElementById("result-ring-fill").setAttribute(
+    "stroke-dasharray", `${fill.toFixed(1)} ${circumference.toFixed(1)}`
+  );
+
+  // Animate score number
+  let n = 0;
+  const target = total;
+  const step = () => {
+    n = Math.min(n + 1, target);
+    document.getElementById("result-score-num").textContent = n;
+    if (n < target) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+
+  document.getElementById("result-badge").textContent =
+    `Level ${lv.level} — ${lv.title}`;
+  document.getElementById("result-level-title").textContent = lv.title;
+  document.getElementById("result-level-sub").textContent = lv.sub;
+
+  // Recommendations based on Q10
+  const q10Ans = answers[9];
+  const recKeys = q10Recs[q10Ans] || ["A", "C"];
+  const recList = document.getElementById("result-recs-list");
+  recList.innerHTML = "";
+  recKeys.forEach((key, i) => {
+    const team = teamMap[key];
+    const div = document.createElement("div");
+    div.className = "rec-item";
+    div.innerHTML = `
+      <div class="rec-num">0${i + 1}</div>
+      <div>
+        <div class="rec-name">${team.name}</div>
+        <div class="rec-desc">${team.desc}</div>
+      </div>`;
+    recList.appendChild(div);
+  });
+}
+
+// Init
+renderQuestion(0);
+</script>
+</body>
+</html>
