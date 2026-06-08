@@ -150,42 +150,10 @@
           這些工作都很重要，<br>但不一定需要由最有經驗的人親自完成。
         </p>
       </div>
-      <div class="col-lg-6 fade-in">
-        <!-- Productivity Gap SVG -->
-        <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
-          <!-- Left node: People -->
-          <rect x="20" y="120" width="80" height="44" rx="4" fill="#1a1a1a" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-          <text x="60" y="147" text-anchor="middle" fill="white" font-size="12" font-family="Inter,sans-serif" font-weight="600">People</text>
-          <!-- Right node: Goals -->
-          <rect x="400" y="120" width="80" height="44" rx="4" fill="#1a1a1a" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-          <text x="440" y="147" text-anchor="middle" fill="white" font-size="12" font-family="Inter,sans-serif" font-weight="600">Goals</text>
-          <!-- Broken lines with gap nodes -->
-          <!-- Line 1: Knowledge Lost -->
-          <line x1="100" y1="132" x2="195" y2="132" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <rect x="196" y="120" width="108" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-          <text x="250" y="138" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">Knowledge Lost</text>
-          <line x1="304" y1="132" x2="400" y2="132" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4,3" stroke-width="1"/>
-          <!-- Line 2: Repeated Work -->
-          <line x1="100" y1="152" x2="190" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <rect x="191" y="155" width="110" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-          <text x="246" y="173" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">Repeated Work</text>
-          <line x1="301" y1="168" x2="400" y2="152" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4,3" stroke-width="1"/>
-          <!-- Line 3: Training Cost -->
-          <line x1="100" y1="142" x2="190" y2="195" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <rect x="191" y="185" width="110" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-          <text x="246" y="203" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">Training Cost</text>
-          <line x1="301" y1="200" x2="400" y2="142" stroke="rgba(255,255,255,0.07)" stroke-dasharray="4,3" stroke-width="1"/>
-          <!-- Line 4: Communication Gap -->
-          <line x1="100" y1="155" x2="185" y2="228" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <rect x="186" y="218" width="128" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <text x="250" y="236" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter,sans-serif">Communication Gap</text>
-          <line x1="314" y1="232" x2="400" y2="155" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4,3" stroke-width="1"/>
-          <!-- Line 5: Project Delay -->
-          <line x1="100" y1="158" x2="190" y2="258" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <rect x="191" y="248" width="110" height="28" rx="3" fill="#1a1a1a" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <text x="246" y="266" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">Project Delay</text>
-          <line x1="301" y1="262" x2="400" y2="158" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,3" stroke-width="1"/>
-        </svg>
+      <div class="col-lg-6 fade-in d-flex justify-content-center">
+        <div style="width:100%;max-width:420px;">
+          <canvas id="problem-canvas" style="display:block;width:100%;"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -548,5 +516,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/hero-canvas.js"></script>
+<script src="assets/js/problem-canvas.js"></script>
 </body>
 </html>
